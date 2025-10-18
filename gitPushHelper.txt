@@ -1,0 +1,9 @@
+How to push:
+1. git status
+2. git add 'path'
+3. git status
+4. git commit -m "letzter stand"
+5. git push
+
+If not logged in:
+1. gh auth login 'Token from C:\Users\Tillman\Desktop'
