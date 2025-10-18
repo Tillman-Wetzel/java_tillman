@@ -6,7 +6,7 @@ public class main {
     public static void main(String [] args){
 
 
-    /*             // easy on/off swith with comments
+    //*             // easy on/off swith with comments
     String Name = "John Doe";
     int ID = 15;
     int Age = 23;
