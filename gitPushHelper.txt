@@ -5,5 +5,14 @@ How to push:
 4. git commit -m "letzter stand"
 5. git push
 
+How to Wok in a Team:
+1. Collaborator vorher requesten.
+2. Neusten stand pullen(Kommando: git pull )
+3. Eigene Branch Erstellen(Kommando: git branch 'beliebiger name')
+4. siehe How to Push
+5. Terminal zeig Pull-request -> bitte Klicken
+6. Reposetory Owner -> review and approve/denie
+7. Pull request Owner mergen.
+
 If not logged in:
 1. gh auth login 'Token from C:\Users\Tillman\Desktop'
