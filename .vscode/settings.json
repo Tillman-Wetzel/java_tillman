@@ -7,5 +7,22 @@
         "org.graalvm.*",
         "io.micrometer.shaded.*",
         "java.awt.*"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "MySQL_LocalDatabase",
+            "database": "my_java_database",
+            "username": "root",
+            "password": "Die drei ???"
+        }
     ]
 }
