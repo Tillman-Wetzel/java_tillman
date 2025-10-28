@@ -139,7 +139,7 @@ public class CalculatorApp implements ActionListener{
             resultLabel.setText(inputOne + " " + calculationMethod + " ");
         }
 
-        else if (command == "=") {
+        else if (command == "=" & inputOne != "" & inputTwo != "") {
             if(calculationMethod == '+') {
                 result = calculator.add(Integer.parseInt(this.inputOne), Integer.parseInt(this.inputTwo));
             }
@@ -157,6 +157,20 @@ public class CalculatorApp implements ActionListener{
 
             resultLabel.setText(inputOne + " " + calculationMethod + " " + inputTwo + " = " + result);
 
+            calculationMethod = ' ';
+            inputOne = "";
+            inputTwo = "";
+        }
+
+        else {
+            resultLabel.setText("Werte sind nicht vollständig.");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            resultLabel.setText("");
+            
             calculationMethod = ' ';
             inputOne = "";
             inputTwo = "";
