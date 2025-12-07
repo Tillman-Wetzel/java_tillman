@@ -152,7 +152,7 @@ public class CalculatorApp implements ActionListener{
             }
 
             else if(calculationMethod == ':') {
-                result = calculator.divide(Integer.parseInt(this.inputOne), Integer.parseInt(this.inputTwo));
+                result = calculator.divide(Double.parseDouble(this.inputOne), Double.parseDouble(this.inputTwo));
             }
 
             resultLabel.setText(inputOne + " " + calculationMethod + " " + inputTwo + " = " + result);
@@ -170,7 +170,7 @@ public class CalculatorApp implements ActionListener{
                 e1.printStackTrace();
             }
             resultLabel.setText("");
-            
+
             calculationMethod = ' ';
             inputOne = "";
             inputTwo = "";
