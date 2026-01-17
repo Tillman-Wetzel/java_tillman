@@ -18,7 +18,11 @@ public class Limit<T extends Number>{
     }
 
     double calcAverage() {
-        return ;
+        int arraySum = 0;
+        for (T t : arrayValue) {
+            arraySum = arraySum + t;
+        }
+        return arraySum / arrayValue.length;
     }
     
 }
