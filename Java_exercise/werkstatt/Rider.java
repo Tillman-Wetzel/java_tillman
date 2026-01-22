@@ -15,4 +15,3 @@ public class Rider {
         this.name = name;
     }
 }
-}
