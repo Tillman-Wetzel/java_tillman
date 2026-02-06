@@ -1,11 +1,12 @@
 package Java_exercise.MySQL_AND_JDBC;
 
 import java.util.ArrayList;
+import jdbc.src.App;
 
 public class JDBCTesting {
-    App App = new App();
     public static void main(String[] args) {
-        for (ArrayList<String> i : App.getDatabaseItem("Users", "firstname", "")) {
+        String[] myCoulums = {"ID", "firstname"};
+        for (String i : App.getDatabaseItem("Users", myCoulums, "")) {
             System.out.println(i);   
         }
     }

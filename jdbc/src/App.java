@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class App {
     private static String currentDatabase = "my_java_database";
     public static void main(String[] args) {
-        getDatabaseItem("Users", new String[]{"ID", "firstname", "lastname"}, "");
+        System.out.println(getDatabaseItem("Users", new String[]{"ID", "firstname", "lastname"}, ""));
     }
     public static String getCurrentDatabase() {
         return currentDatabase;
@@ -14,22 +14,17 @@ public class App {
         currentDatabase = newDatabase;
     }
 
-    public static ArrayList<String> getDatabaseItem(String table, String[] coulums, String arguments) {
+    public static ArrayList<String> getDatabaseItem(String relaition, String[] coulums, String arguments) {
         ArrayList<String> results = new ArrayList<String>();
         
         try {
             // Load the MySQL JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-            // Establish a connection
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + currentDatabase, "root", "78952");
-            System.out.println("Connection established.");
-            // Create a statement
             Statement stmt = con.createStatement();
             // Execute a query
-            String query = "SELECT * FROM " + table + " " + arguments; 
-            System.out.println("Executing query: " + query);
+            String query = "SELECT * FROM " + relaition + " " + arguments; 
             ResultSet rs = stmt.executeQuery(query);
-            // Process the result set
             while (rs.next()) {
                 for (String currentCoulum : coulums) {
                     results.add(rs.getString(currentCoulum));
@@ -56,26 +51,19 @@ public class App {
         return results;
     }
     
-    public static void setDatabaseItem(String table, String primaryKeyOfTable, String valueOfPrimaryKeyOfValueToChange, String coulum, String newItem) {
+    public static void setDatabaseItem(String relaition, String valueToChange, String coulum, String newValue, String arguments) {
         try {
             // Load the MySQL JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             // Establish a connection
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + currentDatabase, "root", "78952");
-            System.out.println("Connection established.");
-            // Create a statement
             Statement stmt = con.createStatement();
             // Execute a query
-            String query = "SELECT * FROM Users"; 
+            String query = "UPDATE " + relaition + " SET " + valueToChange + " = " + newValue; 
             System.out.println("Executing query: " + query);
             ResultSet rs = stmt.executeQuery(query);
             // Process the result set
             while (rs.next()) {
-                System.out.println("ID: " + rs.getString("ID") +
-                " firstname: " + rs.getString("firstname") + 
-                " Lastname: " + rs.getString("lastname") + 
-                " Email: " + rs.getString("email")
-                );
             }
 
             // Close resources

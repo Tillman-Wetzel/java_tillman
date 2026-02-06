@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class AwtExample implements ActionListener{
+public class AwtExample implements ActionListener {
     Button button;
     TextField textField;
     Label label;
