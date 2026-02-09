@@ -83,6 +83,38 @@ public class App {
             e.printStackTrace();
         }
     }
+    public static void addDatabaseItem(String relaition, String valueToChange, String coulum, String newValue, String arguments) {
+        try {
+            // Load the MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Establish a connection
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + currentDatabase, "root", "78952");
+            Statement stmt = con.createStatement();
+            // Execute a query
+            String query = "UPDATE " + relaition + " SET " + valueToChange + " = " + newValue; 
+            System.out.println("Executing query: " + query);
+            ResultSet rs = stmt.executeQuery(query);
+            // Process the result set
+            while (rs.next()) {
+            }
+
+            // Close resources
+            rs.close();
+            stmt.close();
+            con.close();
+        } 
+        catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.getMessage());
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Vendor Error: " + e.getErrorCode());
+        } 
+        catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found.");
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public static void createTable(String name, String attributes) {
         try {
             // Load the MySQL JDBC Driver
