@@ -62,9 +62,6 @@ public class App {
             String query = "UPDATE " + relaition + " SET " + valueToChange + " = " + newValue; 
             System.out.println("Executing query: " + query);
             ResultSet rs = stmt.executeQuery(query);
-            // Process the result set
-            while (rs.next()) {
-            }
 
             // Close resources
             rs.close();
@@ -83,7 +80,7 @@ public class App {
             e.printStackTrace();
         }
     }
-    public static void addDatabaseItem(String relaition, String valueToChange, String coulum, String newValue, String arguments) {
+    public static void addDatabaseItem(String relaition, String coloumsToAddInto, String values) {
         try {
             // Load the MySQL JDBC Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -91,8 +88,7 @@ public class App {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + currentDatabase, "root", "78952");
             Statement stmt = con.createStatement();
             // Execute a query
-            String query = "UPDATE " + relaition + " SET " + valueToChange + " = " + newValue; 
-            System.out.println("Executing query: " + query);
+            String query = "INSERT INTO " + relaition + " (" + coloumsToAddInto + ") VALUES (" + values + ");"; 
             ResultSet rs = stmt.executeQuery(query);
             // Process the result set
             while (rs.next()) {
